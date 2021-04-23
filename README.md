@@ -81,11 +81,11 @@ IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView cr
 ```
 
 - layoutType:
-
+```java
   IOTPayConfig.OneTimePayment
   
   IOTPayConfig.AddCard
-
+```
 
 - Example:
 
