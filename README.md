@@ -70,6 +70,7 @@ Single Line:
  IOTCardInfoView iotCardInfoView;
 
  ...
+
  iotCardInfoView = IOTPayService.IOTCardInfoView(myViewGroup,(int)IOTPayConstants.TripleLine.label);
 
 
