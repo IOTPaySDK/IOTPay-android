@@ -27,12 +27,8 @@ repositories {
 		dirs 'libs'
    	}
 }
-
-
 dependencies {
-
 	compile(name:'IOTPayAndroidCredit-release',ext:'aar')
-  
 }
 
 ```
