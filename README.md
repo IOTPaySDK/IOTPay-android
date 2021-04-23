@@ -5,7 +5,7 @@
 
 IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debit card information.
 <br /> 
-1 Inject a credit form to collect consumer’s credit/debit card information:
+1 Embed a credit entry GUI to collect consumer’s credit/debit card information:
 <br /> card number, holder name, expiry date, CVV/CVC
 <br /> 
 2 provide add card, payment methods
@@ -17,99 +17,104 @@ IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debi
 
 
 ## Step 1: Install 
+<br /> 
 (1) copy IOTPayAndroidCredit-release.aar to app/libs
+<br /> 
 (2) add followings in app/build.gradle
+<br /> <br /> 
 repositories {
-flatDir {
-	dirs 'libs' 
-}
-} ...
-dependencies {
- ...
-	compile(name:'IOTPayAndroidCredit-release',ext:'aar')
+<br /> 
+flatDir {<br /> 
+	dirs 'libs' <br /> 
+}<br /> 
+} ...<br /> 
+dependencies {<br /> 
+ ...<br /> 
+	compile(name:'IOTPayAndroidCredit-release',ext:'aar')<br /> 
 
-...
-}
-
-
-
-<br />      
-
-## Step 2: Setup View
-Inject IOTPay credit form into a ViewGroup in your app.
-IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)
-creditCardStyle:
- Triple Lines: 
-   (int)IOTPayConstants.TripleLine.label
- 
-
-
-Single Line:
-   (int)IOTPayConstants.SingleLine.label
- 
-
-example:
- IOTCardInfoView iotCardInfoView;
- 
- ...
- 
- iotCardInfoView = IOTPayService.IOTCardInfoView(myViewGroup,(int)IOTPayConstants.TripleLine.label);
-
+...<br /> 
+}<br /> 
 
 
 
 <br />      
 
-## Step 3: Send the Request
-pay or add card
-IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView creditForm,IOTPayCallback iotPayCallback);
-layoutType:
+## Step 2: Setup View<br /> 
+Embed IOTPay credit entry GUI into a ViewGroup in your app.<br /> <br /> 
+IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)<br /> 
+creditCardStyle:<br /> 
+ Triple Lines: <br /> 
+   (int)IOTPayConstants.TripleLine.label<br /> 
+ 
 
-  IOTPayConfig.OneTimePayment
+
+Single Line:<br /> 
+   (int)IOTPayConstants.SingleLine.label<br /> 
+ 
+<br /> 
+example:<br /> 
+ IOTCardInfoView iotCardInfoView;<br /> 
+ <br /> 
+ ...<br /> 
+ <br /> 
+ iotCardInfoView = IOTPayService.IOTCardInfoView(myViewGroup,(int)IOTPayConstants.TripleLine.label);<br /> 
+<br /> 
+<br /> 
+
+
+<br />      
+
+## Step 3: Send the Request<br /> 
+pay or add card<br /> 
+IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView creditForm,IOTPayCallback iotPayCallback);<br /> 
+
+layoutType:<br /> 
+
+  IOTPayConfig.OneTimePayment<br /> 
   
-  IOTPayConfig.AddCard
-Example:
-(2.1) pay:
- //Make sure secureID for payment has been retrieved from context
+  IOTPayConfig.AddCard<br /> 
+Example:<br /> 
+(2.1) pay:<br /> 
+ //Make sure secureID for payment has been retrieved from context<br /> 
 
- try{
+ try{<br /> 
 
-      IOTPayService.sendRequest(secureId,IOTPayConfig.OneTimePayment, iotCardInfoView,new IOTPayCallback(){
+      IOTPayService.sendRequest(secureId,IOTPayConfig.OneTimePayment, iotCardInfoView,new IOTPayCallback(){<br /> 
 
-        public void onResultIOTPay(String result) {
+        public void onResultIOTPay(String result) {<br /> 
 
-            //please process result in your own way, ex: showMsg("Payment Result:" + result);
+            //please process result in your own way, ex: showMsg("Payment Result:" + result);<br /> 
 
-        }
+        }<br /> 
 
 
-      });
+      });<br /> 
 
-  }catch (Exception e){
+  }catch (Exception e){<br /> 
 
-      //showMsg("Error:" + e.getMessage());
+      //showMsg("Error:" + e.getMessage());<br /> 
 
-  }
-(2.2) Add card: binding the card to a consumer
-  //Make sure secureID for card adding has been retrieved from context
+  }<br /> 
+(2.2) Add card: binding the card to a consumer<br /> 
+  //Make sure secureID for card adding has been retrieved from context<br /> 
 
-  try{
+  try{<br /> 
 
-      IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTPayCallback(){
+      IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTPayCallback(){<br /> 
 
-        public void onResultIOTPay(String result) { //result
+        public void onResultIOTPay(String result) {<br /> 
 
-          //please process result in your own way, ex: showMsg("Payment Result:" + result);
+          //please process result in your own way, ex: showMsg("Payment Result:" + result);<br /> 
 
-        }
+        }<br /> 
 
-      });
+      });<br /> 
 
-   }catch (Exception e){
+   }catch (Exception e){<br /> 
 
-       //showMsg("Error:" + e.getMessage());
+       //showMsg("Error:" + e.getMessage());<br /> 
 
-  }
+  }<br /> 
 
 		
 
