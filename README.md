@@ -23,16 +23,16 @@ IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debi
 <br /> <br /> 
 ```
 repositories {
-
 	flatDir {
 		dirs 'libs'
    	}
 }
-...
+
+
 dependencies {
-  ...
+
 	compile(name:'IOTPayAndroidCredit-release',ext:'aar')
-  ...
+  
 }
 
 ```
