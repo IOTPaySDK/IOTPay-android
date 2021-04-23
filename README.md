@@ -46,11 +46,12 @@ IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)<br />
 creditCardStyle:<br /> 
  Triple Lines: <br /> 
    (int)IOTPayConstants.TripleLine.label<br /> 
- 
+ ![alt text](https://github.com/zhongzeyu/IOTPay-android/blob/master/triple.png ) 
 
 
 Single Line:<br /> 
    (int)IOTPayConstants.SingleLine.label<br /> 
+ ![alt text](https://github.com/zhongzeyu/IOTPay-android/blob/master/single.png ) 
  
 <br /> 
 <br /> 
