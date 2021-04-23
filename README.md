@@ -47,18 +47,25 @@ dependencies {
 Embed IOTPay credit entry GUI into a ViewGroup in your app.
 
 IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)
-creditCardStyle:
+
+
+- creditCardStyle:
+
  Triple Lines: 
+
    (int)IOTPayConstants.TripleLine.label
+
  ![alt text](https://github.com/zhongzeyu/IOTPay-android/blob/master/triple.png ) 
 
 
 Single Line:
+
    (int)IOTPayConstants.SingleLine.label
+
  ![alt text](https://github.com/zhongzeyu/IOTPay-android/blob/master/single.png ) 
  
 
-###example:
+- Example:
 
  IOTCardInfoView iotCardInfoView;
 
@@ -72,14 +79,14 @@ pay or add card
 
 IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView creditForm,IOTPayCallback iotPayCallback);
 
-###layoutType:
+- layoutType:
 
   IOTPayConfig.OneTimePayment
   
   IOTPayConfig.AddCard
 
 
-Example:
+- Example:
 
 (2.1) pay:
 
