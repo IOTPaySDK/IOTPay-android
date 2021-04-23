@@ -22,28 +22,27 @@ IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debi
 <br /> 
 (2) add followings in app/build.gradle
 <br /> <br /> 
-```
-repositories {
 
-flatDir {
-	dirs 'libs'
-}
-} ...
-dependencies {
-  ...
-	compile(name:'IOTPayAndroidCredit-release',ext:'aar')
-  ...
-}
-```
+repositories {<br />
+
+flatDir {<br />
+	dirs 'libs'<br />
+   }<br />
+}<br /> ...<br />
+dependencies {<br />
+  ...<br />
+	compile(name:'IOTPayAndroidCredit-release',ext:'aar')<br />
+  ...<br />
+}<br />
+
 
 
 <br />      
 
 ## Step 2: Setup View<br /> 
 Embed IOTPay credit entry GUI into a ViewGroup in your app.<br /> <br /> 
-```
-IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)
-```
+
+IOTCardInfoView IOTCardInfoView(ViewGroup viewGroup, int creditCardStyle)<br />
 creditCardStyle:<br /> 
  Triple Lines: <br /> 
    (int)IOTPayConstants.TripleLine.label<br /> 
@@ -55,13 +54,13 @@ Single Line:<br />
  
 <br /> 
 <br /> 
-example:<br /> 
-```
- IOTCardInfoView iotCardInfoView;
- 
- ...
- iotCardInfoView = IOTPayService.IOTCardInfoView(myViewGroup,(int)IOTPayConstants.TripleLine.label);
-```
+###example:<br /> 
+<br />
+ IOTCardInfoView iotCardInfoView;<br />
+ <br />
+ ...<br />
+ iotCardInfoView = IOTPayService.IOTCardInfoView(myViewGroup,(int)IOTPayConstants.TripleLine.label);<br />
+
 <br /> 
 <br /> 
 
@@ -70,9 +69,9 @@ example:<br />
 
 ## Step 3: Send the Request<br /> 
 pay or add card<br /> 
-```
+
 IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView creditForm,IOTPayCallback iotPayCallback);
-```
+<br />
 ###layoutType:<br /> 
 
   IOTPayConfig.OneTimePayment<br /> 
@@ -83,47 +82,25 @@ IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView cr
 Example:<br /> 
 (2.1) pay:<br /> 
  //Make sure secureID for payment has been retrieved from context<br /> 
-```
- try{
+ try{<br />
+IOTPayService.sendRequest(secureId,IOTPayConfig.OneTimePayment, iotCardInfoView,new IOTPayCallback(){<br />
+        public void onResultIOTPay(String result) {<br />
+            //please process result in your own way, ex: showMsg("Payment Result:" + result);<br />
+        }<br />
+      });<br />
+  }catch (Exception e){<br />
+      //showMsg("Error:" + e.getMessage());<br />
+  }<br />
 
-IOTPayService.sendRequest(secureId,IOTPayConfig.OneTimePayment, iotCardInfoView,new IOTPayCallback(){
-
-        public void onResultIOTPay(String result) {
-
-            //please process result in your own way, ex: showMsg("Payment Result:" + result);
-
-        }
-
-
-      });
-
-  }catch (Exception e){
-
-      //showMsg("Error:" + e.getMessage());
-
-  }
-```
 (2.2) Add card: binding the card to a consumer<br /> 
   //Make sure secureID for card adding has been retrieved from context<br /> 
-```
-  try{
-
-      IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTPayCallback(){
-
-        public void onResultIOTPay(String result) {
-
-          //please process result in your own way, ex: showMsg("Payment Result:" + result);
-
-        }
-
-      });
-
-   }catch (Exception e){
-
-       //showMsg("Error:" + e.getMessage());
-
-  }
-```
-
-		
+  try{<br />
+IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTPayCallback(){<br />
+        public void onResultIOTPay(String result) {<br />
+          //please process result in your own way, ex: showMsg("Payment Result:" + result);<br />
+        }<br />
+      });<br />
+   }catch (Exception e){<br />
+       //showMsg("Error:" + e.getMessage());<br />
+  }<br />
 
