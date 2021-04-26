@@ -118,3 +118,5 @@ IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTP
   }
 ```
 
+#Reference: 
+[How to get SecureID](https://github.com/IOTPaySDK/IOTPay-iOS/blob/main/README.md)
