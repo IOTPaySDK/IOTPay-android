@@ -5,7 +5,8 @@
 
 IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debit card information.
 <br /> 
-1 Embed a credit entry GUI into collect consumer’s credit/debit card information:
+[For the whole business picture please refer the ](https://github.com/IOTPaySDK/IOTPay-iOS/blob/main/README.md)
+1 Embed a credit entry GUI into a ViewGroup to collect consumer’s credit/debit card information:
 <br /> card number, holder name, expiry date, CVV/CVC
 <br /> 
 2 provide add card, payment methods
