@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:onClick="iotpayOneTimePay"
-        android:text="Pay"
+        android:onClick="simplePurchase"
+        android:text="Simple Purchase"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:onClick="iotpayAddCard"
+        android:onClick="addCard"
         android:text="Add Card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

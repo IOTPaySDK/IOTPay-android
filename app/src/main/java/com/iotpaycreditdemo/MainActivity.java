@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
     private void openStyleSwitch(boolean isChecked){
         iotCardInfoView.switchType(isChecked? (int) IOTPayConstants.TripleLine.label:(int) IOTPayConstants.SingleLine.label);
     }
-    public void iotpayOneTimePay(View v){
+    public void simplePurchase(View v){
         String secureId = secureIdPay.getText() + "";
 
         try{
-            IOTPayService.sendRequest(secureId, IOTPayConfig.OneTimePayment, iotCardInfoView,new IOTPayCallback(){
+            IOTPayService.sendRequest(secureId, IOTPayConfig.SimplePurchase, iotCardInfoView,new IOTPayCallback(){
                 public void onResultIOTPay(String result) { //result
                     showMsg("Payment Result:" + result);
                 }
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void showMsg(String msg){
         ResultActivity.startAction(this, msg);
     }
-    public void iotpayAddCard(View v) throws Exception{
+    public void addCard(View v) throws Exception{
         String secureId = secureIdAddCard.getText() + "";
         try{
             IOTPayService.sendRequest(secureId,IOTPayConfig.AddCard,iotCardInfoView,new IOTPayCallback(){
