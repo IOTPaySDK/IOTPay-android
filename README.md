@@ -100,14 +100,17 @@ IOTPayService.sendRequest(secureId,IOTPayConfig.SimplePurchase, iotCardInfoView,
             //please process result in your own way, Ex: as following;
 	    /*
 	     if retCode == FAIL
-	       go to failure page with retMsg, Ex: order payment failed, reason: ....., please retry....
+	       go to failure page with retMsg,
+	         Ex: order payment failed, reason: ....., please retry....
 	     else if  retCode == SUCCESS
 	        check retData.status
 		  if status in(2,3)
-		    go to success page,  Ex: Order payment successfull....
+		    go to success page,
+		      Ex: Order payment successfull....
 		  else
-		     means order status is unknow, go to Order status Unknow page, and involve in the support team for order final result.
-		          Ex: Order is processing, please call (xxx)xxx xxx for order[xxxxxxxxx] payment result.
+		     means order status is unknow, go to Order status Unknow page, and involve in the support team
+		     for order final result.
+		       Ex: Order is processing, please call (xxx)xxx xxx for order[xxxxxxxxx] payment result.
 	    */
         }
       });
