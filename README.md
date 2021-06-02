@@ -6,7 +6,7 @@
 IOTPay-Android is a sdk called in merchant app to collect consumer's credit/debit card information.
 <br /> 
 [For the whole business picture please refer the '2.3 Event Flow and Options'](https://github.com/IOTPaySDK/IOTPay-iOS/blob/main/README.md)<br /> <br />
-1 Embed a credit entry GUI into a ViewGroup to collect consumer’s credit/debit card information:
+1 Embed a credit entry GUI into a ViewGroup to collect consumerâ€™s credit/debit card information:
 <br /> card number, holder name, expiry date, CVV/CVC
 <br /> 
 2 provide add card, payment methods
@@ -97,7 +97,18 @@ IOTPayService.sendRequest(String secureId, Object layoutType, IOTCardInfoView cr
  try{
 IOTPayService.sendRequest(secureId,IOTPayConfig.SimplePurchase, iotCardInfoView,new IOTPayCallback(){
         public void onResultIOTPay(String result) {
-            //please process result in your own way, ex: showMsg("Payment Result:" + result);
+            //please process result in your own way, Ex: as following;
+	    /*
+	     if retCode == FAIL
+	       go to failure page with retMsg, Ex: order payment failed, reason: ....., please retry....
+	     else if  retCode == SUCCESS
+	        check retData.status
+		  if status in(2,3)
+		    go to success page,  Ex: Order payment successfull....
+		  else
+		     means order status is unknow, go to Order status Unknow page, and involve in the support team for order final result.
+		          Ex: Order is processing, please call (xxx)xxx xxx for order[xxxxxxxxx] payment result.
+	    */
         }
       });
   }catch (Exception e){
