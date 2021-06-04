@@ -108,8 +108,8 @@ IOTPayService.sendRequest(secureId,IOTPayConfig.SimplePurchase, iotCardInfoView,
 		    go to success page,
 		      Ex: Order payment successfull....
 		  else
-		     means order status is unknow, go to Order status Unknow page, and involve in the support team
-		     for order final result.
+		     means order status is unknow, go to Order status Unknow page, and involve in 
+		     the support team for order final result.
 		       Ex: Order is processing, please call (xxx)xxx xxx for order[xxxxxxxxx] payment result.
 	    */
         }
